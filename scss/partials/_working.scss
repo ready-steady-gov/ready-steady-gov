@@ -77,7 +77,7 @@ body {
 }
 
 .home {
-
+	overflow:hidden;
 	.hero-with-caption {
 		@include span-columns(8);
 		max-height: 340px;
