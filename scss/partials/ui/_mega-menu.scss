@@ -1,0 +1,296 @@
+// ==========================================================================
+// Mega menu - http://www.microsoft.com/en-au/default.aspx
+// ==========================================================================
+
+/* Main Nav
+   ========================================================================== */
+
+#nav-container {
+	border-bottom:1px solid #efefef;
+	background:$banner-light-gray;
+
+	&>.wrapper{
+		margin-top:0;
+		margin-bottom:0;
+	}
+}
+
+
+
+/* sub-navigation panel */
+.sub-nav {
+    position: absolute;
+    display: block;
+    top: -9999em;
+    max-height: 0px;
+    opacity: 0;
+    margin-top: -1px;
+    padding: 0.5em 1em;
+	padding-top:40px;
+	padding-bottom:40px;
+    background-color: #f5f6f7;
+    width:100%;
+	left:0;
+	//@include transition (opacity 250ms ease 250ms, max-height 500ms ease, visibility 0s linear 500ms, top 0s linear 500ms);
+    &:before, &:after {
+		content: "";
+		position: absolute;
+		background: #f5f6f7;  /* Match the background */
+		top: 0;
+		bottom: 0;
+		width: 9999px;   /* some huge width */
+	} 
+	&:before {
+		right: 100%; 
+	}
+	&:after {
+		left: 100%;
+	}
+
+
+    /* sub-navigation panel open state */
+    &.open {
+		visibility: visible;
+		top: 2.9em;
+		max-height: 600px;
+		opacity: 1;
+		z-index: 1001;
+		width:100%;
+		left:0;
+		padding-top:40px;
+		padding-bottom:40px;
+		display:block;
+		//@include transition (opacity 250ms ease, max-height 500ms ease, visibility 0s linear 0s, top 0s linear 0s);
+    }
+    /* list of items within sub-navigation panel */
+    & ul {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 1em 0 0;
+        padding: 0;
+    }
+    /* list item within sub-navigation panel */
+    & li {
+        display: block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        & a:hover{
+        	text-decoration:underline;	
+        }
+    }
+
+}
+
+
+#main-nav {
+	li {
+		&.current-menu-item, &.current-menu-ancestor, &.current-menu-parent {
+			background: #fafafa;
+		}
+		a {
+			padding: 0.2em 0.5em 0.4em 0;
+			color: $medium-gray;
+			text-decoration: none;
+		}
+		& .sub-nav a:hover {
+			text-decoration:underline;
+		}
+		a.sub {
+			padding-right:2em !important;
+			&:after {
+				content: "\e60a";
+		      	font-family: 'ready-steady-gov';
+		      	position: absolute;
+		      	padding-top: 1px;
+		      	padding-left: $gap / 3;
+			}
+		}
+	}
+}
+
+// ####start accessible mega menu
+
+ /* mega menu list */
+    .nav-menu {
+        display: block;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        z-index: 15;
+
+        & > .nav-item > a:hover, & > .nav-item > a:focus, & > .nav-item > a.open {
+        	@include box-shadow-border (0, 2px, 0, 0, $medium-gray);
+        }
+        & > .nav-item > a.open {
+       		background: #f5f6f7;
+    	}
+    }
+    #main-nav>.nav-menu>.nav-item>a {
+        font-family:$openSans;
+        font-size:0.90313em;
+        padding:10px;
+	}
+    /* a top level navigation item in the mega menu */
+    .nav-item {
+        list-style: none;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+	    /* first descendant link within a top level navigation item */
+	    & > a {
+	        position: relative;
+	        display: inline-block;
+	        padding: 0.5em 1em;
+	        margin: 0 0 -1px 0;
+	        border: 1px solid transparent;
+	    }
+	    /* focus/open states of first descendant link within a top level 
+	       navigation item */
+	    & > a:focus,
+	    & > a.open {
+	        //border: 1px solid #dedede;
+	    }
+	    /* open state of first descendant link within a top level 
+	       navigation item */
+	    & > a.open {
+	        border-bottom: none;
+	        z-index: 1;
+	    }
+    }
+.sub-nav-group {
+	@include span-columns(3);
+	& h4 {
+		font-size:0.95em;
+	}
+}
+
+// ####end accessible mega menu
+
+ /* below is for the patterns page - to be moved elsewhere - */
+
+#main-nav-demo {
+	float: right;
+	padding: $gap 0;
+	li {
+		position: relative;
+		float: left;
+		margin-right: $gap	* 1.5;
+		list-style: none;
+		padding: 0;
+		text-transform: uppercase;
+		&.first {
+			margin-left: 0;
+		}
+		&.last {
+			margin-right: 0;
+		}
+		&.current-menu-item, &.current-menu-ancestor, &.current-menu-parent {
+			background: #fafafa;
+		}
+		a {
+			display: inline-block;
+			padding: 0.4em 0.7em;
+			color: $medium-gray;
+			text-decoration: none;
+			border: 1px solid $base-border-color;
+		}
+		&.active a, &:hover a,  {
+			background: $white;
+			box-shadow: none;
+			border: 1px solid $base-border-color;
+			border-radius: 3px;
+		}
+		a.sub:after {
+			content: "\e60a";
+	      	font-family: 'ready-steady-gov';
+	      	position: absolute;
+	      	padding-top: 1px;
+	      	padding-left: $gap / 3;
+		}
+		.sub-menu {
+			padding: 0;
+			display: none;
+			position: absolute;
+			background: #fafafa;
+			z-index: 1000;	
+			li {
+				float: none;
+				position: relative;
+				margin-right: 0;
+				
+				a {
+					width: 8em;
+				}
+			}
+			
+			.sub-menu {
+				display: none;
+				left: 100%;
+			    position: absolute;
+			    top: 0;
+			}
+		}
+	}
+}
+
+
+@include media($medium-screen-down) {
+	li.nav-item>a {
+	color:#fff !important;
+		
+	}
+	.sub.open {
+		color:#69737c !important;
+	}
+
+	#nav-container {
+		position: absolute;
+  		 top: -9999px;
+  		 left: -9999px;
+  		 background:#69737c;
+		&.open {
+			position:relative;
+			top:0;
+			left:0;
+			display:block;
+			width:100%;
+			z-index:99;
+
+		}
+
+		& .nav-menu {
+			color:#000;
+			& .nav-item {
+				display:block;
+
+			}
+		} 
+	}
+	.nav-item {
+		& > a {
+			display:block;
+		}
+	}
+	.sub-nav {
+		visibility:visible;
+		overflow:hidden;
+		&.open {
+			position:relative;
+			top:0;
+			max-height:inherit;
+			display:block;
+		}
+		&:before, &:after {
+     		visibility: hidden;
+			
+		}
+	}
+	.sub-nav-group {
+		@include span-columns(12);
+		float:none;
+		margin-bottom:20px;
+	}
+
+}

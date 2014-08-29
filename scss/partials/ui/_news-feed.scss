@@ -1,0 +1,78 @@
+// --------------------------------------------------------------------------
+//	 News feed
+// --------------------------------------------------------------------------
+
+.news-feed {
+	@include span-columns(4);
+
+	.news-heading {
+		padding-bottom: $gap / 2;
+	}
+
+	ul li {
+		border-bottom: 1px solid $base-border-color;
+		padding-bottom: $gap / 1.5;
+		margin-bottom: $gap / 1.5;
+
+		time, .title, .exert {
+			display: block;
+		}
+
+		.title {
+			margin-bottom: $gap / 2;
+		}
+
+	}
+
+	@include media($medium-screen-down) {
+		@include span-columns(12);
+	}
+	
+	/* ---- colour helpers - provided as an example! ---- */
+
+	&.blue  {
+	
+		.news-heading {
+			@include box-shadow-border (0, 4px, 0, 0, $blue);
+		}
+	
+		ul li span.exert a {
+		  color: $blue;
+		  	&:hover {
+		  		color: $light-blue;
+		  	}
+		}
+	
+	}
+	
+	&.green  {
+	
+		.news-heading {
+			@include box-shadow-border (0, 4px, 0, 0, $green);
+		}
+	
+		ul li span.exert a {
+		  color: $green;
+		  &:hover {
+		  		color: $light-green;
+		  	}
+		}
+	
+	}
+	
+	&.gray  {
+	
+		.news-heading {
+			@include box-shadow-border (0, 4px, 0, 0, $light-gray);
+		}
+	
+		ul li span.exert a {
+		  color: $medium-gray;
+		  &:hover {
+		  		color: $light-gray;
+		  	}
+		}
+	
+	}
+
+}

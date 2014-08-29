@@ -1,0 +1,256 @@
+
+/*http://modularscale.com/scale/?px1=17&px2=17&ra1=1.25&ra2=0 - 4:5 major third */
+
+// --------------------------------------------------------------------------
+//	 Typography
+// --------------------------------------------------------------------------
+
+body {
+  	color: $base-font-color;
+  	font-family: Helvetica, Arial, sans-serif;
+  	font-size: $base-font-size;
+  	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility; 
+	line-height: $base-line-height;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  line-height: 1.25em;
+  margin: 0;
+  text-rendering: optimizeLegibility; // Fix the character spacing for headings
+  font-weight: 600;
+  margin-bottom: $gap;
+  color: $medium-gray;
+}
+
+h1 {
+  font-size: $base-font-size * 2.41; // 17 * 2.41 = 41px
+}
+
+h2 {
+  font-size: $base-font-size * 1.94; // 17 * 1.94 = 33px
+}
+
+h3 {
+  font-size: $base-font-size * 1.53; // 17 * 1.53 = 26px
+}
+
+h4 {
+  font-size: $base-font-size * 1.23; // 17 * 1.23 = 21px
+}
+
+/*
+h5 {
+  font-size: $base-font-size;
+}
+*/
+
+h5, h6 {
+  font-size: $base-font-size * 0.85; // 17 * 0.8 = 14.5px*/
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h6 {
+	font-style: italic;
+}
+
+p {
+  margin: 0 0 ($base-line-height * .5);
+}
+
+.muted {
+	color: lighten($base-font-color, 20);
+}
+
+.slab {
+	font-family: $slab;
+	line-height: 1.35em;
+}
+
+.serif {
+	font-family: $serif;
+	line-height: 1.35em;
+}
+
+/* ---- Defualt link styling ---- */
+
+a {
+  color: $base-link-color;
+  text-decoration: underline;
+  @include transition(color 0.1s linear);
+  cursor: pointer;
+
+  &:hover {
+    color: $hover-link-color;
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+  }
+}
+
+/* ----- alt link styling - a bity less accessible but a bit more sexy ---- */
+
+a.alt {
+  color: $base-font-color;
+  text-decoration: none;
+  @include transition(color 0.1s linear);
+  padding-bottom: 0;
+  border-bottom: 1px solid $base-link-color;
+  
+
+  &:hover {
+    color: $hover-link-color;
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+    border-bottom: 1px;
+  }
+}
+
+a.transcript.alt {
+	line-height: 60px;
+}
+
+/* ---- link with arrow ---- */
+
+a.arrow {
+  color: $base-link-color;
+  text-decoration: none;
+  @include transition(color 0.1s linear);
+  padding-bottom: 0;
+  /* text-transform: uppercase; */
+
+  &:after {
+  	content: "\e608";
+	font-family: 'ready-steady-gov';
+	padding: 0 0 1px 5px;
+	display: inline-block;
+	vertical-align: middle;
+	@include transition(all 0.1s linear);
+  }
+  
+  &:hover {
+    color: $hover-link-color;
+     
+     &:after {
+     	padding-left: 10px;
+     }
+
+  }
+
+  &:active, &:focus {
+    color: $hover-link-color;
+    border-bottom: 1px;
+  }
+}
+
+hr {
+  border-bottom: 1px solid $base-border-color;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-line-height 0;
+}
+
+.demo hr {
+	margin-top: $gap*6;
+}
+
+img {
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted $base-border-color;
+  cursor: help;
+}
+
+address {
+  display: block;
+  margin: 0 0 ($base-line-height / 2);
+}
+
+hgroup {
+  margin-bottom: $base-line-height / 2;
+}
+
+del {
+  color: lighten($base-font-color, 15);
+  font-size: $base-font-size * 0.82; // 17 * 0.825 = 14px
+}
+
+time {
+  color: $dark-gray;
+  font-size: $base-font-size * 0.825; // 17 * 0.825 = 14px
+}
+
+blockquote {
+  border-left: 10px solid $base-border-color;
+  color: lighten($base-font-color, 1);
+  margin: $gap 0 $gap $gap * 3 ;
+  padding: $gap/2 0 $gap/2 $base-line-height / 2;
+
+	/*  ---- colour helpers ---- */
+	
+	&.blue {
+		border-left: 10px solid $light-blue;
+	}
+	
+	&.green {
+		border-left: 10px solid $light-green;
+	}
+	
+	&.yellow {
+		border-left: 10px solid $light-yellow;
+	}
+
+}
+
+.pullquote { 
+	float: left; 
+	margin-right: $gap * 2;
+	margin-left: 0;
+	padding-bottom: $gap;
+	padding-left: 0; 
+	width: 30%; 
+	font-size: 1.33em; 
+	line-height: $base-line-height;
+	color: $medium-gray; 
+	margin-top: 0;
+	border: none;
+	font-weight: bold;
+}
+
+cite {
+  color: lighten($base-font-color, 25);
+  font-style: italic;
+
+  &:before {
+    content: '\2014 \00A0';
+  }
+}
+
+// --------------------------------------------------------------------------
+//	 Divider
+// --------------------------------------------------------------------------
+
+.section-title {
+	text-align: center;
+	padding: $gap*2 0;
+}
+
+.divider {
+	width: 150px;
+	height: 5px;
+	background: lighten($light-gray, 2);
+	margin: auto;
+	display: block;
+	margin: $gap*2 auto $gap*3;
+}

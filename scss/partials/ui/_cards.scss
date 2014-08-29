@@ -1,0 +1,172 @@
+// --------------------------------------------------------------------------
+//	 Cards
+// --------------------------------------------------------------------------
+
+.cards {
+  @include clearfix;
+}
+
+.card {
+  @include span-columns(4);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $real-light-gray;
+  position: relative;
+  overflow: hidden;
+
+  @include media($large-screen) {
+    @include span-columns(4);  
+    @include omega(3n);
+  }
+
+  @include media($medium-screen-down) {
+    @include span-columns(6 of 12);
+    @include omega(2n);
+    margin-bottom: $gap*2;
+  }
+
+  @include media($small-screen-down) {
+    @include span-columns(12 of 12);
+    @include omega(1n);
+    margin-bottom: $gap*2;
+  }
+
+  .card-image {
+    overflow: hidden;
+
+    img {
+      width: 100%;;
+      @include image-zoom;
+      @include box-shadow-border (0, 4px, 0, 0, $light-gray);
+    }
+  }
+
+  .card-header {
+    padding: $gap $gap 0 $gap;
+    @include transition (all 0.2s ease-in-out);
+    font-weight: bold;
+  }
+
+  .card-copy {
+    padding: 0 $gap $gap $gap;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 4px darken($base-body-color, 10);
+  }
+
+}
+
+.card.filled {
+    @include rise-on-hover;
+}
+
+.card.nude {
+    background: none;
+
+  .card-header {
+      padding: $gap 0 0 0;
+      @include transition (all 0.2s ease-in-out);
+      font-weight: bold;
+  }
+
+  .card-copy {
+      padding: 0;
+  }
+
+  &:hover {
+    box-shadow: none;
+  }
+
+}
+
+.card.headless {
+  padding: $gap;
+
+  .card-header {
+      padding: 0;
+      @include transition (all 0.2s ease-in-out);
+      font-weight: bold;
+  }
+
+  .card-copy {
+      padding: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 4px darken($base-body-color, 10);
+  }
+
+}
+
+/* colour helpers */
+
+/*.blue .card-image {
+    @include box-shadow-border (0, 4px, 0, 0, $blue);
+}
+
+.green .card-image {
+    @include box-shadow-border (0, 4px, 0, 0, $green);
+}
+
+.yellow .card-image {
+    @include box-shadow-border (0, 4px, 0, 0, $light-yellow);
+}*/
+
+.card.blue {
+  img {
+    @include box-shadow-border (0, 4px, 0, 0, $blue);
+  }
+}
+
+.card.green {
+  img {
+    @include box-shadow-border (0, 4px, 0, 0, $green);
+  }
+}
+
+.card.yellow {
+  img {
+    @include box-shadow-border (0, 4px, 0, 0, $light-yellow);
+  }
+}
+
+.card.headless.blue {
+  background: $light-blue;
+  color: white;
+
+    h4 {
+      color: white;
+    }
+
+   &:hover {
+      background: $blue;
+      box-shadow: 0 2px 4px darken($base-body-color, 30);
+   }
+}
+
+.card.headless.green {
+  background: $light-green;
+  color: white;
+
+    h4 {
+      color: white;
+    }
+
+   &:hover {
+      background: $green;
+      box-shadow: 0 2px 4px darken($base-body-color, 30);
+   }
+}
+
+.card.headless.gray {
+  background: $real-light-gray;
+  color: white;
+
+    h4 {
+      color: white;
+    }
+
+   &:hover {
+      background: $light-gray;
+   }
+}

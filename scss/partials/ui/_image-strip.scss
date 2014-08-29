@@ -1,0 +1,34 @@
+// --------------------------------------------------------------------------
+//	 Image strip -  wip
+// --------------------------------------------------------------------------
+
+.image-strip-inner {
+	@include span-columns(12);
+	@include row(table);
+	overflow: hidden;
+
+	.image-strip-item {
+		@include span-columns(3);
+		height: 400px;
+		overflow-x: hidden;
+		background: no-repeat center center;
+		-webkit-background-size: cover;
+	  	-moz-background-size: cover;
+	  	-o-background-size: cover;
+	  	background-size: cover;
+
+		&:last:child {
+			@include reset-display;
+		}
+
+		@include media($default-screen-down) {
+		}
+	}
+}
+
+.image-strip.wrapper-fullscreen {
+	@include media($default-screen-down) {
+		padding: 0;
+	}
+
+}

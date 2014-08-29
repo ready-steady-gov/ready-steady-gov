@@ -1,0 +1,67 @@
+// --------------------------------------------------------------------------
+//	 Hero
+// --------------------------------------------------------------------------
+
+.hero-with-caption {
+	@include span-columns(12);
+	position: relative;
+	overflow: hidden;
+	max-height: 340px;
+
+	img {
+		@include image-zoom;
+	}
+
+	figcaption {
+		@include span-columns(4);
+		background: $base-body-color;
+		position: absolute;
+		top: $gap * 2;
+		left: 0;
+		padding: $gap;
+
+	}
+	
+	/* ---- colour helpers ---- */
+
+	&.green {
+		figcaption {
+			@include box-shadow-border (0, 4px, 0, 0, $green);
+		}
+	
+		h4 {
+			color: $green;
+		}
+	}
+	
+	&.blue {
+		figcaption {
+			@include box-shadow-border (0, 4px, 0, 0, $blue);
+		}
+	
+		h4 {
+			color: $blue;
+		}
+	}
+	
+	&.yellow {
+		figcaption {
+			@include box-shadow-border (0, 4px, 0, 0, $light-yellow);
+		}
+	
+		h4 {
+			color: $yellow;
+		}
+	}
+	
+	&.gray {
+		figcaption {
+			@include box-shadow-border (0, 4px, 0, 0, $light-gray);
+		}
+	
+		h4 {
+			color: $medium-gray;
+		}
+	}
+
+}

@@ -1,0 +1,60 @@
+// --------------------------------------------------------------------------
+//	 Typography
+// --------------------------------------------------------------------------
+
+$base-font-family: $sourceSansPro;
+$header-font-family: $openSans;
+
+// --------------------------------------------------------------------------
+//	 Type sizes
+// --------------------------------------------------------------------------
+
+$base-font-size: 1.0625em; 
+// 17px
+$base-line-height: $base-font-size * 1.5;
+$base-border-radius: em(3);
+
+// --------------------------------------------------------------------------
+//	 Colours
+// --------------------------------------------------------------------------
+
+$light-blue: #6da9d9;
+/* $blue: #469ae0; */
+$blue: #2d7bba;
+$light-green: #95c677;
+$green: #7bb855;
+$light-yellow: #f5d657;
+$yellow: #f1c40f;
+$light-red: #FBE3E4;
+$white: #fff;
+
+$banner-light-gray: #fcfcfc;
+$real-light-gray: #f5f6f7;
+$light-gray: #c7cacd;
+$medium-gray: #69737c;
+$dark-gray: #44505b;
+
+// Body Colour
+$base-body-color: white;
+
+//  Font Colours
+$base-font-color: #565656;
+$base-accent-color: $blue;
+
+//  Text Link Colours
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 15);
+
+// Border colour
+$base-border-color: #efefef;
+
+//Department base color
+$dept-base-color: #69737c;
+
+// --------------------------------------------------------------------------
+//	 UI helpers
+// --------------------------------------------------------------------------
+
+//Set all top/bottom spacing a devisbale of $gap - vertical rhythm yo!
+$gap: 20px;
+

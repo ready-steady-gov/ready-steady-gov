@@ -1,0 +1,192 @@
+// --------------------------------------------------------------------------
+//	 Buttons - wip
+// --------------------------------------------------------------------------
+
+// c1 = Background Colour
+// c2 = Type colour
+// c3 = Hover Colour
+// c4 = Text Hover Colour
+
+@mixin sm {
+	padding: 0.5em 1.1em;
+}
+
+@mixin med {
+	padding: 0.7em 1.5em;
+	text-transform: uppercase;
+}
+
+@mixin lge {
+	padding: 0.7em 1.6em 0.6em;
+	width: 100%;
+	text-transform: uppercase;
+	margin-top: $gap;
+}
+
+@mixin sm-social {
+	padding: 0.3em 0.7em;
+}
+
+
+@mixin button-rsg ($c1, $c2, $c3, $c4) {
+	background: $c1;
+	color: $c2;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	cursor: pointer;
+	text-decoration: none;
+	margin-right: $gap;
+	
+	&:hover {
+		background:$c3;
+		color: $c4; 
+	}
+
+	&:active {
+		color: $c4;
+		top: 1px;
+	}
+}
+
+%button {
+  @include button-rsg($real-light-gray, $medium-gray, $light-gray, $medium-gray);
+  -webkit-font-smoothing: antialiased;
+  font-size: $base-font-size;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+// --------------------------------------------------------------------------
+//	 
+// --------------------------------------------------------------------------
+
+// c1 = Background Colour
+// c2 = Type colour
+// c3 = Hover Colour
+// c4 = Text Hover Colour
+
+//defualt buttons
+
+.button.default.sm {
+	@include button-rsg ($real-light-gray, $medium-gray, darken($real-light-gray, 5), $medium-gray);
+	@include sm;
+	@include box-shadow-border (0, 2px, 0, 0, $light-gray);
+}
+
+.button.default.med {
+	@include button-rsg ($real-light-gray, $medium-gray, darken($real-light-gray, 5), $medium-gray);
+	@include med;
+	@include box-shadow-border (0, 4px, 0, 0, $light-gray);
+}
+
+.button.default.lge {
+	@include button-rsg ($real-light-gray, $medium-gray, darken($real-light-gray, 5), $medium-gray);
+	@include lge;
+	@include box-shadow-border (0, 4px, 0, 0, $light-gray);
+}
+
+//blue buttons
+
+.button.blue.sm {
+	@include button-rsg ($light-blue, $white, darken($light-blue, 5), $white);
+	@include sm;
+	@include box-shadow-border (0, 2px, 0, 0, $blue);
+}
+
+.button.blue.med {
+	@include button-rsg ($light-blue, $white, darken($light-blue, 5), $white);
+	@include med;
+	@include box-shadow-border (0, 4px, 0, 0, $blue);
+}
+
+.button.blue.lge {
+	@include button-rsg ($light-blue, $white, darken($light-blue, 5), $white);
+	@include lge;
+	@include box-shadow-border (0, 4px, 0, 0, $blue);
+}
+
+//green buttons
+
+.button.green.sm {
+	@include button-rsg ($light-green, $white, darken($light-green, 5), $white);
+	@include sm;
+	@include box-shadow-border (0, 2px, 0, 0, $green);
+}
+
+.button.green.med {
+	@include button-rsg ($light-green, $white, darken($light-green, 5), $white);
+	@include med;
+	@include box-shadow-border (0, 4px, 0, 0, $green);
+}
+
+.button.green.lge {
+	@include button-rsg ($light-green, $white, darken($light-green, 5), $white);
+	@include lge;
+	@include box-shadow-border (0, 4px, 0, 0, $green);
+}
+
+//social buttons
+
+.button.default.sm-social.email, 
+.button.default.sm-social.print,
+.button.default.sm-social.facebook,
+.button.default.sm-social.twitter,
+.button.default.sm-social.sendit {
+	font-size: 1.1em;
+	@include button-rsg ($real-light-gray, $medium-gray, darken($real-light-gray, 5), $medium-gray);
+	@include sm-social;
+	@include box-shadow-border (0, 2px, 0, 0, $light-gray);
+	margin-right: 10px;
+	font-family: 'ready-steady-gov';
+}
+
+.button.default.sm-social.email:before {
+	content: "\e606";
+}
+
+.button.default.sm-social.print:before {
+	content: "\e603";
+}
+
+.button.default.sm-social.facebook:before {
+	content: "\e605";
+}
+
+.button.default.sm-social.twitter:before {
+	content: "\e601";
+}
+
+.button.default.sm-social.sendit:before {
+	content: "\e604";
+}
+
+//coloured social buttons - REWRITE DRYer!
+
+.button.blue.sm-social.facebook {
+	font-size: 1.1em;
+	@include button-rsg (darken($blue, 5), $white, darken($blue, 10), $white);
+	@include sm-social;
+	@include box-shadow-border (0, 2px, 0, 0, darken($blue, 15));
+	margin-right: 10px;
+	font-family: 'ready-steady-gov';
+}
+
+.button.blue.sm-social.facebook:before {
+	content: "\e605";
+}
+
+.button.light-blue.sm-social.twitter {
+	font-size: 1.1em;
+	@include button-rsg ($light-blue, $white, darken($light-blue, 5), $white);
+	@include sm-social;
+	@include box-shadow-border (0, 2px, 0, 0, darken($light-blue, 10));
+	margin-right: 10px;
+	font-family: 'ready-steady-gov';
+}
+
+.button.light-blue.sm-social.twitter:before {
+	content: "\e601";
+}
+
+

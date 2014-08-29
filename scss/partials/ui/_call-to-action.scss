@@ -1,0 +1,81 @@
+// --------------------------------------------------------------------------
+//	 Fullscreen call to action
+// --------------------------------------------------------------------------
+
+/* ---- call-to-action global stuff ---- */
+
+.call-to-action {
+  padding: $gap 0;
+
+  .wrapper {
+    margin-top: 0;
+  }
+
+}
+
+/* ----- colour helpers ---- */
+
+.call-to-action.gray {
+  background: $real-light-gray;
+}
+
+.call-to-action.green {
+  background: $light-green;
+  color: $white;
+
+  .prompt {
+    color: $white;
+  }
+}
+
+.call-to-action.blue {
+  background: $light-blue;
+
+  .prompt {
+    color: $white;
+  }
+}
+
+/* ---- internal cta ---- */
+
+.cta {
+  @include span-columns(12);
+  @include transition (all 0.2s ease-in-out);
+  position: relative;
+  overflow: hidden;
+  padding: $gap*3 0;
+
+  .prompt {
+    @include span-columns(8);
+    margin-bottom: 0;
+    line-height: 50px;
+  }
+
+  .device {
+    @include span-columns(4);
+
+    .lge {
+      margin-top: 0 !important;
+    }
+
+  }
+
+  @include media($medium-screen-down) {
+    .prompt {
+        @include span-columns(12);
+        margin-bottom: $gap*2;
+        line-height: 50px;
+      }
+
+    .device {
+        @include span-columns(12);
+    }
+  }
+
+  legend,
+  label,
+  .button-text  {
+    @include visuallyhidden;
+  }
+
+}

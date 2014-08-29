@@ -1,0 +1,76 @@
+// --------------------------------------------------------------------------
+//	 Accordion
+// --------------------------------------------------------------------------
+
+.accordion {
+  $accordion-menu-border-color: $base-border-color;
+  $accordion-menu-border: 1px solid $accordion-menu-border-color;
+  $accordion-menu-background: lighten($accordion-menu-border-color, 10);
+  $accordion-menu-hover: lighten($accordion-menu-background, 10);
+  $accordion-menu-sub-background: lighten($real-light-gray, 2);
+  
+  background-color: $accordion-menu-background;
+  border: $accordion-menu-border;
+  margin-bottom: $base-line-height;
+  position: relative;
+
+  li {
+    border-bottom: $accordion-menu-border;
+
+    > a {
+      padding: $gap $gap $gap $gap * 3;
+      display: block;
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      background-color: $accordion-menu-hover;
+    }
+
+    &:before {
+      content: "\e60a";
+      font-family: 'ready-steady-gov';
+      position: absolute;
+      padding-top: $gap;
+      padding-left: $gap;
+    }
+
+    &.is-expanded:before {
+      content: "\e607";
+    }
+  }
+
+  ul.submenu {
+    display: none;
+
+    li:before { 
+      content: none;
+    }
+
+    li {
+      background-color: $accordion-menu-sub-background;
+
+      &:first-child {
+        border-top: $accordion-menu-border;
+      }
+
+      &:hover {
+      }
+    }
+  }
+
+  .is-expanded:before {
+      content: "\e60a";
+      font-family: 'ready-steady-gov';
+      position: absolute;
+      padding-top: $gap;
+      padding-left: $gap;
+  }  
+
+  .is-expanded {
+    display: block;
+  }
+}

@@ -1,0 +1,527 @@
+// ==========================================================================
+// Page layouts go here 
+// ==========================================================================
+
+/* ==========================================================================
+   Html and Body
+   ========================================================================== */
+
+html {
+	background-color: #fefefe;
+	overflow-x: hidden;
+
+	/* remove 300ms delay on windows */
+	-ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+html.no-touch {
+	overflow-y: auto;
+}
+
+body {
+	width: 100%;
+	position: relative;
+	/*buttery transition on page load*/
+	@include animation(fade-in 800ms ease-in-out, ease 1);
+}
+
+// --------------------------------------------------------------------------
+//	 Wrappers
+// --------------------------------------------------------------------------
+
+.wrapper {
+	@include outer-container;
+	position: relative;
+	margin-top: $gap*2;
+	margin-bottom: $gap*2;
+
+		@include media($large-screen-down) {
+			padding: 0 $gap;
+		}
+}
+
+.wrapper-fullscreen {
+	@include outer-container-fullscreen;
+	position: relative;
+	margin-top: $gap*2;
+	margin-bottom: $gap*2;
+
+		@include media($large-screen-down) {
+			padding: 0 $gap;
+		}
+}
+
+#page-container {
+	position: relative;
+	width: 100%;
+}
+
+#main {
+	padding-top: $gap*3;
+}
+
+.home #main {
+	padding-top: $gap;
+}
+
+
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+/* Hero */
+
+.home.wrapper {
+	margin-bottom: $gap * 3;
+}
+
+.home {
+
+	.hero-with-caption {
+		@include span-columns(8);
+		max-height: 340px;
+
+		figcaption {
+			@include span-columns(6);
+
+			@include media($medium-screen-down) {
+				top: $gap/2;
+				left: $gap/2;
+			}
+
+			@include media($small-screen-down) {
+				@include span-columns(12);
+				position: relative;
+				display: block;
+				padding: 0;
+			}
+		}
+
+		@include media($medium-screen-down) {
+			@include span-columns(12);
+			margin-bottom: $gap*2;
+			max-height: none;
+		}	
+	}
+
+	.about-blurb {
+		@include span-columns(4);
+		@include omega();
+
+		@include media($medium-screen-down) {
+			top: 0;
+			right: 0;
+		}
+
+		@include media($medium-screen-down) {
+			@include span-columns(12);
+		}
+	}
+
+}
+
+.call-to-action {
+	margin-top: $gap * 4;
+	margin-bottom: $gap * 4;
+
+	.wrapper {
+		margin-bottom: 0;
+	}
+
+	.cta .prompt {
+	}
+
+	.cta .device {
+
+		fieldset {
+			border: 1px solid $light-gray;
+			padding: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	form.subscribe input[type="text"] {
+		width: 70%;
+		padding: 14px 14px 8px;
+		font-size: 18px;
+		background: #fff;
+		float: left;
+		box-shadow: none;
+		border-radius: 0;
+		border: none;
+		margin-bottom: 0;
+		font-size: 0.9em;
+	}
+
+	form.subscribe button[type="submit"] {
+		padding: 13px 26px;
+		font-size: 24px;
+		color: #fff;
+		border: none;
+		background: #999;
+		float: right;
+		margin-right: 0;
+		font-family: 'ready-steady-gov';
+		background: $light-green;
+		@include box-shadow-border (inset 0, -2px, 0, 0, $green);
+	}
+
+	form.subscribe button[type="submit"]:hover,
+	form.subscribe button[type="submit"]:focus {
+		background: darken($light-green, 5);
+	}
+
+	form.subscribe button[type="submit"]:active {
+		top: 0;
+	}
+
+}
+
+// --------------------------------------------------------------------------
+//	 Content page
+// --------------------------------------------------------------------------
+
+
+#main-container {
+	
+	#breadcrumb {
+		margin-bottom: $gap * 3;
+		ul {
+			display: inline-block;
+			line-height: 1em;
+			font-size: 0.9em;
+			color: $base-font-color; 
+			
+			li {
+				position: relative;
+				float: left;
+				list-style: none;
+				padding: 0 5px 0 3px;
+				line-height: 0.9em;
+
+				&:first-child {
+					margin-left: 0;
+					padding-left: 0;
+				}
+				
+				&:last-child {
+					margin-right: 0;
+					border: none;
+				}
+
+				&:after {
+					font-family: 'ready-steady-gov';
+					content: "\e608";
+					vertical-align: middle;
+					padding-left: 7px;
+				}
+
+				&:last-child:after {
+					content: none;
+				}	
+				
+				a {
+					color: $base-font-color;
+				}
+				
+			}
+		}
+	}
+
+	.page #main {
+		@include span-columns(8);
+		@include shift(4);
+		padding: 0 0 $gap*3 0;
+
+		.sharing-caring {
+			@include span-columns(8 of 8);
+			@include border-top-style (1px, $base-border-color);
+			margin-top: $gap * 3;
+			padding-top: $gap / 2;
+
+			span {
+				margin-bottom: $gap / 2;
+				font-size: 0.825em;
+				display: inline-block;
+			}
+
+			@include media($medium-screen-down) {
+				@include span-columns(12 of 12);
+			}	
+		}
+
+		@include media($medium-screen-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
+	}
+
+	.sidebar {
+		@include span-columns(3);
+		@include shift(-12);
+		@include border-top-style (4px, $base-border-color);
+		padding: $gap / 2 $gap 0 0;
+
+		@include media($medium-screen-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
+	}
+
+	#sidebar-primary,
+	#sidebar-secondary {
+		@include span-columns(3 of 3);
+
+		@include media($medium-screen-down) {
+			@include span-columns(12 of 12);
+		}
+	}
+
+	#sidebar-secondary {
+		@include border-top-style (2px, $base-border-color);
+		@include border-bottom-style (2px, $base-border-color);
+		padding: $gap / 2 0 $gap / 2 0;
+		margin-top: $gap;
+	}
+
+}
+
+.video-embed {
+	border: none;
+}
+
+
+// --------------------------------------------------------------------------
+//	 Search
+// --------------------------------------------------------------------------
+
+
+// --------------------------------------------------------------------------
+//	 Feature
+// --------------------------------------------------------------------------
+
+
+// --------------------------------------------------------------------------
+//	 Contact us
+// --------------------------------------------------------------------------
+
+#map-holder {
+	@include span-columns (8 of 8);
+	position: relative;
+
+	.primary-contact {
+		@include span-columns(3 of 8);
+		@include box-shadow-border (0, 4px, 0, 0, $light-gray);
+		background: $base-body-color;
+		position: absolute;
+		top: $gap * 3;
+		right: 0;
+		margin-right: 0;
+		padding: $gap;
+		z-index: 1;
+
+			@include media($medium-screen-down) {
+				top: $gap/2;
+				right: $gap/2;
+			}
+
+			@include media($small-screen-down) {
+				@include span-columns(8 of 8);
+				position: relative;
+				display: block;
+				padding: 0;
+				margin-right: auto;
+				box-shadow: none;
+				top: auto;
+				right: auto;
+				margin-bottom: $gap*2;
+
+			}	
+	}
+}
+
+#map {
+	height: 400px;
+	background: $real-light-gray;
+	margin-bottom: $gap * 3;
+}
+
+.contact-groups {
+
+	.contact-group {
+		@include span-columns(4);
+		@include omega(3n);
+ 		@include box-shadow-border (0, -4px, 0, 0, $light-gray);
+ 		padding-top: $gap / 2;
+ 		margin-bottom: $gap * 2;
+
+ 		@include media($medium-screen-down) {
+ 			@include span-columns(12);
+			@include omega(1n);
+ 		}
+	}
+}
+
+
+// --------------------------------------------------------------------------
+//	 Grid demo
+// --------------------------------------------------------------------------
+
+/* Media query test - whatch the div change colour */
+.content {
+	@include span-columns(12);
+	background: $real-light-gray;
+	margin-bottom: $gap;
+
+	@include media($large-screen-up) {
+		background: $light-gray;
+	}
+
+	@include media($medium-screen-down) {
+		background: lighten($light-green, 20);
+	}
+
+	@include media($small-screen-down) {
+		background: lighten($light-yellow, 20);
+	}
+}
+
+/* column variation test */
+.content-2 {
+	@include span-columns(6);
+		background: lighten($light-green, 20);
+		margin-bottom: $gap;
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+	}
+}
+
+.content-2-source-order-first {
+	@include span-columns(6);
+	@include shift(6);
+	background: lighten($light-green, 20);
+	margin-bottom: $gap;
+
+	/*media query example*/
+	@include media($medium-screen-down) {
+		/*@include span-columns(4);*/
+		
+	}
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+		@include shift(0);
+	}
+}
+
+.content-2-source-order-second {
+	@include span-columns(6);
+	@include shift(-12);
+	background: lighten($light-green, 20);
+	margin-bottom: $gap;
+
+	/*media query example*/
+	@include media($medium-screen-down) {
+		/*@include span-columns(4);*/
+		
+	}
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+		@include shift(0);
+	}
+}
+
+
+/* column variation test */
+.content-3 {
+	@include span-columns(4);
+	@include omega(3n);
+	background: lighten($light-blue, 20);
+	margin-bottom: $gap;
+
+	@include media($medium-screen-down) {
+		@include span-columns(6);
+		@include omega(2n);
+	}
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+		@include omega(1n);
+	}
+}
+
+/* column variation test */
+.content-4 {
+	@include span-columns(3);
+	@include omega(4n);
+	background: lighten($light-red, 1);
+	margin-bottom: $gap;
+
+	@include media($medium-screen-down) {
+		@include span-columns(6);
+		@include omega(2n);
+	}
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+		@include omega(1n);
+	}
+}
+
+/* column variation test */
+.content-6 {
+	@include span-columns(2);
+	@include omega(6n);
+	background: lighten($light-yellow, 20);
+	margin-bottom: $gap;
+
+	@include media($medium-screen-down) {
+		@include span-columns(4);
+		@include omega(3n);
+	}
+
+	@include media($small-screen-down) {
+		@include span-columns(12);
+		@include omega(1n);
+	}
+}
+
+// --------------------------------------------------------------------------
+//	 Patterns page helpers
+// --------------------------------------------------------------------------
+
+.patterns {
+	
+	.typography {
+		
+	}
+	
+	.gov-icons {
+		font-size: 100px;
+		text-align: center;
+	}
+	
+	.icons {
+		font-size: 40px;
+		
+		.icon {
+			display: block;
+			padding: $gap*2;
+			text-align: center;
+			
+			&.icon-rsgcrest {
+				font-size: 100px
+			}
+		}
+		
+	}
+	
+	.news-feed {
+		@include shift(3);
+		@include span-columns(6);
+	}
+	
+}

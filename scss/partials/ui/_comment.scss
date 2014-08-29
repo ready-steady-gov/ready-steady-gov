@@ -1,0 +1,112 @@
+// --------------------------------------------------------------------------
+//	 Comments
+// --------------------------------------------------------------------------
+
+.comment {
+  $comment-image-vert-alignment: top;
+  @include span-columns(6);
+  @include omega(2n);
+  @include transition (all 0.2s ease-in-out);
+  display: table;
+  margin-bottom: $gap * 2;
+
+  .comment-image,
+  .comment-content {
+    display: table-cell;
+    vertical-align: $comment-image-vert-alignment;
+  }
+
+  .comment-image {
+    @include span-columns(3 of 6);
+    overflow: hidden;
+
+    img {
+      height: auto;
+      max-width: 100%;
+      display: block;
+    }
+  }
+
+  .comment-content {
+    @include span-columns(3 of 6);
+  }
+}
+
+.comment.split {
+  background: $real-light-gray;
+
+  .comment-content {
+    padding: $gap $gap $gap 0;
+  }
+}
+
+
+/* ---- colour helpers ---- */
+
+.blue .comment-image,
+.comment.split.blue {
+   @include box-shadow-border (0, 4px, 0, 0, $blue);
+}
+
+.green .comment-image,
+.comment.split.green {
+   @include box-shadow-border (0, 4px, 0, 0, $green);
+}
+
+.gray .comment-image,
+.comment.split.gray {
+   @include box-shadow-border (0, 4px, 0, 0, $light-gray);
+}
+
+.comment.split.yellow {
+   @include box-shadow-border (0, 4px, 0, 0, lighten($light-yellow, 5));
+}
+
+/* ---- media queries ---- */
+
+.comment.split,
+.comment {
+    @include media($default-screen-down) {
+      
+      @include span-columns(12);
+      margin-bottom: $gap*2;
+
+      .comment-image {
+          @include span-columns(3 of 12);
+      }
+
+        .comment-content {
+          @include shift(1);
+          @include span-columns(8 of 12);
+        }
+    }
+
+    @include media($medium-screen-down) {
+      background: none;
+      box-shadow: none !important;
+      
+        .comment-content {
+            padding: 0 0 $gap 0;
+        }
+        .comment-image {
+        }
+    }
+
+    @include media($small-screen-down) {
+      background: none;
+      .comment-image {
+          @include span-columns(12 of 12);
+          margin-bottom: $gap*2;
+          box-shadow: none;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .comment-content {
+          @include span-columns(12 of 12);
+          @include shift(0);
+        }
+    }
+  }

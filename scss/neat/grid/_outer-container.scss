@@ -1,0 +1,17 @@
+@mixin outer-container {
+  @include clearfix;
+  max-width: $max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin outer-container-fullscreen {
+  @include clearfix;
+  max-width: 100%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}

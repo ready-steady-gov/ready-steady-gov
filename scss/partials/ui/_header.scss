@@ -1,0 +1,266 @@
+// --------------------------------------------------------------------------
+//	 Header
+// --------------------------------------------------------------------------
+
+#header-container {
+	
+	#pre-header {
+		@include defualt-border;
+
+		.wrapper {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+		
+		a {
+			display: inline-block;
+			padding: 0.4em 0.5em;
+			color: $base-font-color;
+			text-decoration: none;
+			font-size: 0.9em;
+			
+				&:hover {
+					text-decoration: underline;
+				}
+		}
+
+		ul {
+			float: right;
+			padding: 0;
+			
+			li {
+				position: relative;
+				float: left;
+				list-style: none;
+				padding: 0;
+				
+				&.first {
+					margin-left: 0;
+				}
+				
+				&:last-child {
+					margin-right: 0;
+				}
+				
+			}
+
+			/* ---- hide on smaller screens ---- */
+			@include media($medium-screen-down) {
+				display: none;
+			}
+		}
+
+	}
+
+	#pre-header.wrapper {
+		margin-bottom: 0;
+	}
+
+	#main-header {
+		background: $banner-light-gray;
+
+		#header-content.wrapper {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding: $gap*1.5 $gap;
+		}
+
+	}
+
+}
+
+
+#logo {
+	width: 110px;
+	height: 110px;
+	display: inline-block;
+
+	a {
+		text-decoration: none;
+	}
+	
+	h1 {
+		width: 110px;
+		font-size: 102px;
+		cursor: pointer;
+		color: $dept-base-color;
+		margin-top: -10px;
+		margin-bottom: 0;
+
+		
+		&:hover {
+			color: #000;
+		}
+
+		span.title {
+			@include visuallyhidden;
+		}
+
+		@include media($medium-screen-down) {
+			font-size: 80px;
+		}
+
+	}
+
+	@include media($medium-screen-down) {
+	}
+
+}
+
+#utilities {
+	top: $gap;
+	right: 0;
+	width: 31.76157%;
+	float: right;
+	display: inline-block;
+
+	#menu-toggle:before {
+	content: "\e60c";
+	}
+
+	#menu-toggle {
+		position: absolute;
+		display: none;
+		width: 100%;
+		background: $medium-gray;
+		@include box-shadow-border (0, 2px, 0, 0, $dark-gray);
+		font-family: 'ready-steady-gov';
+		padding: 11px 9px 9px 16px;
+		font-size: 22px;
+		width: 48px;
+		color: #fff;
+		text-decoration: none;
+		right: 0;
+
+		@include media($medium-screen-down) {
+			display: block;
+		}
+	}
+
+	a.search-trigger:before {
+		content: "\e602";
+	}
+
+	a.search-trigger.selected:before {
+		content: "\e60b";
+	}
+
+	a.search-trigger {
+		display: none;
+
+		@include media($small-screen-down) {
+			position: absolute;
+			display: block;
+			width: 100%;
+			background: $medium-gray;
+			@include box-shadow-border (0, 2px, 0, 0, $dark-gray);
+			font-family: 'ready-steady-gov';
+			padding: 11px 9px 9px 16px;
+			font-size: 16px;
+			width: 48px;
+			color: #fff;
+			text-decoration: none;
+			right: 53px;
+		}
+	}
+
+	fieldset {
+		border: 1px solid $light-gray;
+		padding: 0;
+
+		  legend,
+		  label,
+		  .button-text  {
+		    @include visuallyhidden;
+		  }
+
+	}
+
+	
+	form.search input[type="text"] {
+		width: 80%;
+		padding: 10px 14px 10px;
+		font-size: 18px;
+		background: #fff;
+		float: left;
+		box-shadow: none;
+		border-radius: 0;
+		border: none;
+		margin-bottom: 0;
+		font-size: 0.9em;
+	}
+
+	/* ---- Search icon ---- */
+	form.search input[type="submit"]:before {
+	}
+
+	form.search button[type="submit"] {
+		padding: 10px 14px 14px;
+		font-size: 18px;
+		width: 20%;
+		color: #fff;
+		border: none;
+		background: #999;
+		float: right;
+		margin-right: 0;
+		font-family: 'ready-steady-gov';
+		background: $light-green;
+		@include box-shadow-border (inset 0, -2px, 0, 0, $green);
+	}
+
+	form.search button[type="submit"]:hover,
+	form.search button[type="submit"]:focus {
+		background: darken($light-green, 5);
+	}
+
+	form.search button[type="submit"]:active {
+		top: 0;
+	}	
+
+	a.wa-gov-search {
+		float: right;
+		color: $base-font-color;
+
+		/*hide on smaller screens*/
+		@include media($medium-screen-down) {
+			display: none;
+		}
+	}
+
+	@include media($medium-screen-down) {
+		width: 50%;
+		padding-right: 53px;
+	}
+
+	@include media($small-screen-down) {
+
+		position: absolute;
+		z-index: 1;
+		display: block;
+		width: 100%;
+		top: $gap;
+		right: 20px;
+		left: auto;
+
+		fieldset {
+			padding: 20px 15px 15px 15px;
+			background: $medium-gray;
+			position: absolute;
+			top: $gap*3;
+			right: -20px;
+			width: 100%;
+			border: none;
+			display: none;
+
+			form.search input[type="text"] {
+				width: 80%
+			}
+
+		}
+
+		.open {
+			display: block;
+		}
+
+	}
+}

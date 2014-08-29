@@ -1,0 +1,137 @@
+// --------------------------------------------------------------------------
+//	 Footer
+// --------------------------------------------------------------------------
+   
+#footer-container {
+	margin-top: $gap * 6;
+
+	.wrapper-fullscreen,
+	.wrapper {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: $gap*2;
+		padding-bottom: $gap*2;
+	}
+
+	.footer-menu {
+		@include span-columns(3);
+
+			@include media($medium-screen-down) {
+				@include span-columns(6 of 12);
+				@include omega(2n);
+				margin-bottom: $gap*2;
+			}
+
+			@include media($small-screen-down) {
+				@include span-columns(12 of 12);
+				@include omega(1n);
+			}
+
+	}
+
+	ul li {
+		font-size: 0.9em;
+
+		a {
+			color: $base-font-color;
+		}
+	}
+
+	.contact-details {
+		@include span-columns(6);
+		@include omega();
+
+		@include media($medium-screen-down) {
+			@include span-columns(12);
+			margin-bottom: $gap*2;
+		}
+	}
+	
+}
+
+
+
+	#footer-first-content {
+		border-top: 1px solid $base-border-color;
+		background: lighten($real-light-gray, 2);
+	}
+
+	#footer-second-content {
+		background: darken($real-light-gray, 2);
+		padding: $gap*2 0;
+
+		
+		.gov-link {
+		@include span-columns(3);
+
+		a {
+			font-size: 1.53em;
+			color: $dark-gray;
+			text-decoration: none;
+		}
+
+		@include media($small-screen-down) {
+			@include span-columns(12);
+			margin-bottom: $gap*2;
+		}
+	}
+
+	.copyright {
+		@include shift(3);
+		@include span-columns(6);
+		@include omega();
+
+		ul {
+			float: left;
+			display: block;
+			width: 100%;
+			margin-bottom: $gap / 2; 
+			
+			li {
+				position: relative;
+				float: left;
+				list-style: none;
+				padding: 0 10px 0;
+				font-size: 0.9em;
+				border-right: 1px solid $medium-gray;
+				line-height: 0.9em;
+
+				&:first-child {
+					margin-left: 0;
+					padding-left: 0;
+				}
+				
+				&:last-child {
+					margin-right: 0;
+					border: none;
+				}
+				
+				a {
+					display: block;
+					color: $base-font-color;
+				}
+				
+			}
+		}
+
+		.muted {
+			display: block;
+		}
+
+		@include media($medium-screen-down) {
+			@include span-columns(8);
+			@include shift(1);
+		}
+
+		@include media($small-screen-down) {
+			@include span-columns(12);
+			@include shift(0);
+		}
+	}
+		
+	}
+
+	#footer {
+		padding: $gap 0;
+	}
+

@@ -1,0 +1,109 @@
+// --------------------------------------------------------------------------
+//	 UI helpers
+// --------------------------------------------------------------------------
+
+
+// --------------------------------------------------------------------------
+//	 Fade in 
+// --------------------------------------------------------------------------
+
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name}    { @content; }
+  @-webkit-keyframes #{$name} { @content; }
+  @-o-keyframes #{$name}      { @content; }
+  @-ms-keyframes #{$name}     { @content; }
+  @-khtml-keyframes #{$name}  { @content; }
+  @keyframes #{$name}         { @content; }
+}
+ 
+// Create the keyframes using the mixin
+@include keyframes(fade-in) {
+  from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+// --------------------------------------------------------------------------
+//	 Image zoom
+// --------------------------------------------------------------------------
+
+@mixin image-zoom {
+	@include transition(all 3s ease-in-out);
+		&:hover {
+			 @include transform(scale(1.05) translateZ(0));
+		}
+}
+
+// usage
+// @include image-zoom;
+
+
+// --------------------------------------------------------------------------
+//	 Rise on hover
+// --------------------------------------------------------------------------
+
+
+@mixin rise-on-hover {
+
+	&:hover {
+		@include transform(translateY(-3px) scale(1, 1));
+	}
+}
+
+// usage
+// @include rise-on-hover;
+
+
+// --------------------------------------------------------------------------
+//	 Borders and Box shadows
+// --------------------------------------------------------------------------
+
+
+/* border bottom mixin
+   ====================================================== */
+
+@mixin border-bottom-style ($border-bottom-width, $border-bottom-colour ) {
+	border-bottom: $border-bottom-width solid $border-bottom-colour;
+}
+
+// usage
+// @include border-bottom-style (4px, $green);
+
+@mixin border-top-style ($border-top-width, $border-top-colour ) {
+	border-top: $border-top-width solid $border-top-colour;
+}
+
+// usage
+// @include border-top-style (2px, $green);
+
+
+/* box shadow top mixin
+   ======================================================= */
+
+@mixin box-shadow-border ($horizontal, $vertical, $blur, $spread, $color) {
+	box-shadow: $horizontal $vertical $blur $color;
+}
+
+// usage for top border
+// @include box-shadow-border (0, 2px, 0, 0, $green);
+
+// usage for bottom border
+// @include box-shadow-border (0, -2px, 0, 0, $green);
+
+
+
+/* default border
+   ======================================================== */
+@mixin defualt-border {
+	border-bottom: 1px solid $base-border-color;
+}
+
+@mixin visuallyhidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}

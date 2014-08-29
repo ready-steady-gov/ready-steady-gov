@@ -1,0 +1,80 @@
+// --------------------------------------------------------------------------
+//	 Set breakpoints
+// --------------------------------------------------------------------------
+
+$small-screen: 700px;
+$medium-screen: 900px;
+$default-screen: 1100px;
+$large-screen: 1280px;
+$massive-screen: 1500px;
+
+$small-screen-up: new-breakpoint(min-width $small-screen 12);        //700px;
+$medium-screen-up: new-breakpoint(min-width $medium-screen 12);      //900px;
+$default-screen-up: new-breakpoint(min-width $default-screen 12);  //11100px;
+$large-screen-up: new-breakpoint(min-width $large-screen 12);       //1280px;
+$massive-screen-up: new-breakpoint(min-width $massive-screen 12);   //1500px;
+
+$small-screen-down: new-breakpoint(max-width $small-screen 12);      //700px;
+$medium-screen-down: new-breakpoint(max-width $medium-screen 12);    //900px;
+$default-screen-down: new-breakpoint(max-width $default-screen 12); //1100px;
+$large-screen-down: new-breakpoint(max-width $large-screen 12);     //1280px;
+$massive-screen-down: new-breakpoint(max-width $massive-screen 12); //1500px;
+
+// --------------------------------------------------------------------------
+// Outer container mixin 
+// --------------------------------------------------------------------------
+ 
+
+
+@mixin outer-container {
+	@include clearfix;
+
+	@include media($massive-screen-up) {
+		width: $large-screen;
+	}
+
+	@include media($large-screen-down) {
+		width: $default-screen;
+	}
+
+	@include media($default-screen-down) {
+		width: $medium-screen;
+	}
+	
+	@include media($medium-screen-down) {
+		max-width: $small-screen;
+		width: auto;
+	}
+
+	margin-right: auto;
+	margin-left: auto;
+
+	width: $default-screen;
+	*zoom: 1;
+}
+
+// --------------------------------------------------------------------------
+// Full screen Outer container mixin 
+// --------------------------------------------------------------------------
+
+
+@mixin outer-container-fullscreen {
+  @include clearfix;
+  max-width: 100%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Auto row helper
+// --------------------------------------------------------------------------
+
+@mixin omega-reset($nth) {  
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+//usage
+//@include omega-reset(Xn);  //where X is the column number
