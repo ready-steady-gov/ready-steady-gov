@@ -21,6 +21,7 @@ html.no-touch {
 
 body {
 	width: 100%;
+	overflow:hidden;
 	position: relative;
 	/*buttery transition on page load*/
 	@include animation(fade-in 800ms ease-in-out, ease 1);
@@ -76,8 +77,7 @@ body {
 	margin-bottom: $gap * 3;
 }
 
-.home {
-	overflow:hidden;
+.home {	
 	.hero-with-caption {
 		@include span-columns(8);
 		max-height: 340px;

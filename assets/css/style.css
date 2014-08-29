@@ -2354,6 +2354,7 @@ html.no-touch {
 
 body {
   width: 100%;
+  overflow: hidden;
   position: relative;
   /*buttery transition on page load*/
   -webkit-animation: fade-in 800ms ease-in-out, ease 1;
@@ -2421,68 +2422,66 @@ body {
 .home.wrapper {
   margin-bottom: 60px; }
 
-.home {
-  overflow: hidden; }
-  .home .hero-with-caption {
+.home .hero-with-caption {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  max-height: 340px; }
+  .home .hero-with-caption:last-child {
+    margin-right: 0; }
+  .home .hero-with-caption figcaption {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 65.88078%;
-    max-height: 340px; }
-    .home .hero-with-caption:last-child {
+    width: 48.82117%; }
+    .home .hero-with-caption figcaption:last-child {
       margin-right: 0; }
-    .home .hero-with-caption figcaption {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .home .hero-with-caption figcaption:last-child {
-        margin-right: 0; }
-      @media screen and (max-width: 900px) {
-        .home .hero-with-caption figcaption {
-          top: 10px;
-          left: 10px; } }
-      @media screen and (max-width: 700px) {
-        .home .hero-with-caption figcaption {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 100%;
-          position: relative;
-          display: block;
-          padding: 0; }
-          .home .hero-with-caption figcaption:last-child {
-            margin-right: 0; } }
     @media screen and (max-width: 900px) {
-      .home .hero-with-caption {
+      .home .hero-with-caption figcaption {
+        top: 10px;
+        left: 10px; } }
+    @media screen and (max-width: 700px) {
+      .home .hero-with-caption figcaption {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        margin-bottom: 40px;
-        max-height: none; }
-        .home .hero-with-caption:last-child {
-          margin-right: 0; } }
-  .home .about-blurb {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    margin-right: 0; }
-    .home .about-blurb:last-child {
-      margin-right: 0; }
-    @media screen and (max-width: 900px) {
-      .home .about-blurb {
-        top: 0;
-        right: 0; } }
-    @media screen and (max-width: 900px) {
-      .home .about-blurb {
-        float: left;
+        position: relative;
         display: block;
-        margin-right: 2.35765%;
-        width: 100%; }
-        .home .about-blurb:last-child {
+        padding: 0; }
+        .home .hero-with-caption figcaption:last-child {
           margin-right: 0; } }
+  @media screen and (max-width: 900px) {
+    .home .hero-with-caption {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-bottom: 40px;
+      max-height: none; }
+      .home .hero-with-caption:last-child {
+        margin-right: 0; } }
+.home .about-blurb {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-right: 0; }
+  .home .about-blurb:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 900px) {
+    .home .about-blurb {
+      top: 0;
+      right: 0; } }
+  @media screen and (max-width: 900px) {
+    .home .about-blurb {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .home .about-blurb:last-child {
+        margin-right: 0; } }
 
 .call-to-action {
   margin-top: 80px;
