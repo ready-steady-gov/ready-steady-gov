@@ -158,6 +158,10 @@
 	        border-bottom: none;
 	        z-index: 1;
 	    }
+	    &.header-mobi {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;	    }
     }
 .sub-nav-group {
 	@include span-columns(3);
@@ -237,8 +241,12 @@
 
 
 @include media($medium-screen-down) {
+	#main-nav li a {
+			color:$white;
+	}
+
 	li.nav-item>a {
-	color:#fff !important;
+
 		
 	}
 	.sub.open {
@@ -271,6 +279,14 @@
 	.nav-item {
 		& > a {
 			display:block;
+		}
+		&.header-mobi {
+			position: relative;
+			top: 0;
+			left: 0;
+			& a {
+				color: $light-green !important;	
+			}
 		}
 	}
 	.sub-nav {

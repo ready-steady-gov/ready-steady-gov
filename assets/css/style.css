@@ -1646,6 +1646,10 @@ dl {
   .nav-item > a.open {
     border-bottom: none;
     z-index: 1; }
+  .nav-item.header-mobi {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
 
 .sub-nav-group {
   float: left;
@@ -1710,8 +1714,8 @@ dl {
         top: 0; }
 
 @media screen and (max-width: 900px) {
-  li.nav-item > a {
-    color: #fff !important; }
+  #main-nav li a {
+    color: #fff; }
 
   .sub.open {
     color: #69737c !important; }
@@ -1735,6 +1739,12 @@ dl {
 
   .nav-item > a {
     display: block; }
+  .nav-item.header-mobi {
+    position: relative;
+    top: 0;
+    left: 0; }
+    .nav-item.header-mobi a {
+      color: #95c677 !important; }
 
   .sub-nav {
     visibility: visible;
